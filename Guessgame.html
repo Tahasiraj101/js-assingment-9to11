@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let store = 8
+    let gusses = parseFloat(prompt("guess the secret number"));
+
+    if(store == gusses){
+        alert("Bingo! Correct answer")
+    }else if(store - gusses === 1 || gusses - store === 1){
+        alert("Close enough to the correct answer")
+    }else{
+        alert("Wrong guess, try again!")
+      }
+    </script>
+</body>
+</html>

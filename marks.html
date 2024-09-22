@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #00c6ff, #0072ff); /* Gradient background */
+            background-size: cover; /* Cover the whole screen */
+            color: white; /* Text color */
+            font-family: 'Arial', sans-serif; /* Font style */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.2); /* Semi-transparent glass effect */
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px); /* Blur for glass effect */
+            -webkit-backdrop-filter: blur(10px); /* For Safari */
+            border-radius: 10px; /* Rounded corners */
+            padding: 30px;
+            width: 100%;
+            max-width: 600px; /* Increased max-width for better column display */
+            margin: 20px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin-top: 20px;
+            color: #fff;
+            font-size: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Text shadow for better visibility */
+        }
+        label {
+            font-size: 1rem;
+            color: white;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.8); /* Semi-transparent input fields */
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        button {
+            width: 100%; /* Full width button */
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-center">
+        <h2>Marks Calculator</h2>
+        <div class="form-group">
+            <!-- Math Row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="mathTotal">Total Marks in Math</label>
+                    <input type="number" id="mathTotal" class="form-control" placeholder="Total Marks">
+                </div>
+                <div class="col-md-6">
+                    <label for="mathObtained">Obtained Marks in Math</label>
+                    <input type="number" id="mathObtained" class="form-control" placeholder="Obtained Marks">
+                </div>
+            </div>
+            <!-- Physics Row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="physicsTotal">Total Marks in Physics</label>
+                    <input type="number" id="physicsTotal" class="form-control" placeholder="Total Marks">
+                </div>
+                <div class="col-md-6">
+                    <label for="physicsObtained">Obtained Marks in Physics</label>
+                    <input type="number" id="physicsObtained" class="form-control" placeholder="Obtained Marks">
+                </div>
+            </div>
+            <!-- Chemistry Row -->
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="chemistryTotal">Total Marks in Chemistry</label>
+                    <input type="number" id="chemistryTotal" class="form-control" placeholder="Total Marks">
+                </div>
+                <div class="col-md-6">
+                    <label for="chemistryObtained">Obtained Marks in Chemistry</label>
+                    <input type="number" id="chemistryObtained" class="form-control" placeholder="Obtained Marks">
+                </div>
+            </div>
+        </div>
+        <button onclick="marks()" class="btn btn-primary">Calculate</button>
+        <h1 id="result"></h1>
+    </div>
+
+    <script>
+        function marks() {
+            const mathTotal = parseFloat(document.getElementById('mathTotal').value);
+            const mathObtained = parseFloat(document.getElementById('mathObtained').value);
+            const physicsTotal = parseFloat(document.getElementById('physicsTotal').value);
+            const physicsObtained = parseFloat(document.getElementById('physicsObtained').value);
+            const chemistryTotal = parseFloat(document.getElementById('chemistryTotal').value);
+            const chemistryObtained = parseFloat(document.getElementById('chemistryObtained').value);
+
+            if (mathObtained > mathTotal || physicsObtained > physicsTotal || chemistryObtained > chemistryTotal) {
+                alert("Obtained marks cannot be greater than total marks.");
+                return;
+            }
+
+            const obtainedmarks = mathObtained + physicsObtained + chemistryObtained;
+            const totalmarks = mathTotal + physicsTotal + chemistryTotal;
+
+            const percentage = (obtainedmarks / totalmarks) * 100;
+            let grade = "";
+
+            if (percentage < 60) {
+                grade = 'Fail <br> Sorry';
+            } else if (percentage < 70) {
+                grade = 'B <br> You need to improve';
+            } else if (percentage < 80) {
+                grade = 'A <br> Good';
+            } else if(percentage > 80) {
+                grade = 'A-One <br> Excellent';
+            }else{
+                alert("please enter your Marks ")
+            }
+
+            document.querySelector("#result").innerHTML = `Total Marks: ${totalmarks} <br> Obtained Marks: ${obtainedmarks} <br> Percentage: ${percentage.toFixed(2)}%<br>Grade: ${grade}`;
+        }
+    </script>
+
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

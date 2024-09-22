@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Divisibility by 3</title>
+    <!-- Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            width: 400px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        input {
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 10%;
+            border-radius: 5px;
+        }
+        button {
+            /* width: 10%; */
+            padding: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container text-center">
+    <h2>Check Divisibility by 3</h2>
+    <input type="number" id="number" placeholder="Enter a number" class="form-control">
+    <button onclick="checkDivisibility()" class="btn btn-primary mt-3">Check</button>
+    <div id="result" class="result"></div>
+</div>
+
+<script>
+    function checkDivisibility() {
+        const num = parseInt(document.getElementById('number').value);
+        const resultDiv = document.getElementById('result');
+
+        if (num % 3 === 0) {
+            resultDiv.innerHTML = `The number ${num} is divisible by 3.`;
+        } else {
+            resultDiv.innerHTML = `The number ${num} is not divisible by 3.`;
+        }
+    }
+</script>
+
+</body>
+</html>

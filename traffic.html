@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Signal Checker</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%); /* Gradient background */
+            height: 100vh; /* Full height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 300px; /* Set a specific width for the container */
+            text-align: center; /* Center text */
+        }
+        #userinput {
+            width: 100%; /* Full width input */
+            height: 40px; /* Smaller height */
+        }
+        .btn {
+            width: 100%; /* Full width button */
+            height: 50px; /* Bigger height */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-white">Traffic Signal Checker</h2>
+        <div class="form-group">
+            <input type="text" id="userinput" class="form-control" placeholder="Enter color (Red, Yellow, Green)">
+        </div>
+        <button onclick="traffic()" class="btn btn-light">Check</button>
+        <h1 id="Result" class="text-white mt-4"></h1>
+    </div>
+
+    <script>
+        function traffic() {
+            let userinput = document.querySelector("#userinput").value.toLowerCase();
+            let message = "";
+
+            if (userinput === "red") {
+                message = "Must stop";
+            } else if (userinput === "yellow") {
+                message = "Ready to move";
+            } else if (userinput === "green") {
+                message = "Move now";
+            } else {
+                message = "Invalid color. Please enter Red, Yellow, or Green.";
+            }
+
+            document.querySelector("#Result").innerHTML = message;
+        }
+    </script>
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

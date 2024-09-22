@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Checker</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ffafbd 0%, #ffc3a0 100%); /* Gradient background */
+            height: 100vh; /* Full height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            width: 300px; /* Set a specific width for the container */
+            text-align: center; /* Center text */
+        }
+        #userinput {
+            height: 40px; /* Smaller height */
+        }
+        .btn {
+            height: 50px; /* Bigger height */
+        }
+        #result {
+            margin-top: 20px; /* Space above result */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Fuel Checker</h2>
+        <div class="form-group">
+            <input type="number" step="0.01" id="userinput" class="form-control" placeholder="Enter fuel level (in liters)">
+        </div>
+        <button onclick="fuel()" class="btn btn-primary btn-block">Check Fuel</button>
+        <h1 id="result" class="text-center mt-4"></h1>
+    </div>
+
+    <script>
+        function fuel() {
+            let userinput = parseFloat(document.querySelector("#userinput").value); // Convert input to a float
+            let message = "";
+
+            // Check if userinput is a valid number
+            if (isNaN(userinput)) {
+                message = "Please enter a valid fuel level.";
+            } else if (userinput < 0.25) {
+                message = "Please refill the fuel in your car!";
+            } else {
+                message = "Your fuel tank is full.";
+            }
+
+            document.querySelector("#result").innerText = message; // Display the message
+        }  
+    </script>
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

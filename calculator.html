@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradient background */
+            color: white; /* Text color */
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            text-align: center;
+            width: 600px;
+            background: rgba(0, 0, 0, 0.7); /* Slightly transparent background for the container */
+            padding: 30px;
+            border-radius: 10px;
+        }
+        h1 {
+            margin-top: 20px;
+            font-size: 2.5em;
+            color: #6a11cb; /* Responsive font size */
+        }
+        h1:hover{
+            color: #2575fc;
+            cursor: pointer;
+            transition: all 0.5s ease-in-out;
+            transform: translateY(-10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="number" id="userinput1" class="form-control mb-2" placeholder="Enter first number">
+        <input type="number" id="userinput2" class="form-control mb-3" placeholder="Enter second number">
+        <button class="btn btn-primary mb-2" onclick="Addition()">Addition</button>
+        <button class="btn btn-secondary mb-2" onclick="Substration()">Substration</button>
+        <button class="btn btn-success mb-2" onclick="Multiplication()">Multiplication</button>
+        <button class="btn btn-warning mb-2" onclick="Division()">Division</button>
+        <button class="btn btn-info mb-2" onclick="Modulus()">Modulus</button>
+        <h1 id="result">Result will appear here</h1>
+    </div>
+
+    <script>
+        function Addition() {
+            let userinput1 = parseFloat(document.querySelector("#userinput1").value);
+            let userinput2 = parseFloat(document.querySelector("#userinput2").value);
+
+            let total = Number(userinput1) + Number(userinput2);
+            document.querySelector("#result").innerHTML = total;
+        }
+
+        function Substration() {
+            let userinput1 = parseFloat(document.querySelector("#userinput1").value);
+            let userinput2 = parseFloat(document.querySelector("#userinput2").value);
+
+            let total = Number(userinput1) - Number(userinput2);
+            document.querySelector("#result").innerHTML = total;
+        }
+
+        function Multiplication() {
+            let userinput1 = parseFloat(document.querySelector("#userinput1").value);
+            let userinput2 = parseFloat(document.querySelector("#userinput2").value);
+
+            let total = Number(userinput1) * Number(userinput2);
+            document.querySelector("#result").innerHTML = total;
+        }
+
+        function Division() {
+            let userinput1 = parseFloat(document.querySelector("#userinput1").value);
+            let userinput2 = parseFloat(document.querySelector("#userinput2").value);
+
+            let total = Number(userinput1) / Number(userinput2);
+            document.querySelector("#result").innerHTML = total;
+        }
+
+        function Modulus() {
+            let userinput1 = parseFloat(document.querySelector("#userinput1").value);
+            let userinput2 = parseFloat(document.querySelector("#userinput2").value);
+
+            let total = Number(userinput1) % Number(userinput2);
+            document.querySelector("#result").innerHTML = total;
+        }
+    </script>
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
